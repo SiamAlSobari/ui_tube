@@ -10,3 +10,4 @@
 <ThemeTogle />
 <p>To learn more about Svelte, visit <a href="https://svelte.dev">svelte.dev</a></p>
 <p>To learn more about SvelteKit, visit <a href="https://kit.svelte.dev">kit.svelte.dev</a></p>
+<a href="/login">log</a>
