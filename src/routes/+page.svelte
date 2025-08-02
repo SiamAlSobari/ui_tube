@@ -1,6 +1,6 @@
 <script>
 	import { Button } from '$lib/components/ui/button';
-	import ThemeTogle from '../common/ui/theme-togle.svelte';
+	import ThemeTogle from '../common/ui/toggles/theme-togle.svelte';
 </script>
 
 <h1>Welcome to SvelteKit</h1>
