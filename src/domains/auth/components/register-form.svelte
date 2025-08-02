@@ -5,11 +5,11 @@
 	import { LockKeyhole, Mail, User2 } from 'lucide-svelte';
 	import * as Card from '$lib/components/ui/card/index';
 	import { goto } from '$app/navigation';
-	import { use_register } from '../../../domains/auth/queries';
 	import {
 		register_validation,
 		type register_validation_type
 	} from '../../../domains/auth/validations';
+	import { auth_queries } from '../queries';
 
 	let form: register_validation_type = {
 		name: '',
@@ -19,7 +19,7 @@
 		confirm_password: ''
 	};
 	let errors: Partial<Record<keyof register_validation_type, string>> = {};
-	const register_mutation = use_register();
+	const register_mutation = auth_queries.register();
 
 	function handleSubmit() {
 		const result = register_validation.safeParse(form);

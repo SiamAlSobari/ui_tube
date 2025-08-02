@@ -5,15 +5,15 @@
 	import { LockKeyhole, Mail } from 'lucide-svelte';
 	import * as Card from '$lib/components/ui/card/index';
 	import { goto } from '$app/navigation';
-	import { use_login } from '../../../domains/auth/queries';
 	import { login_validation, type login_validation_type } from '../../../domains/auth/validations';
+	import { auth_queries } from '../queries';
 
 	let form: login_validation_type = {
 		email: '',
 		password: ''
 	};
 	let errors: Partial<Record<keyof login_validation_type, string>> = {};
-	const login_mutation = use_login();
+	const login_mutation = auth_queries.login();
 
 	function handleSubmit() {
 		const result = login_validation.safeParse(form);

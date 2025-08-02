@@ -1,8 +1,9 @@
 <script>
 	import ThemeTogle from "../theme-togle.svelte";
+    let {handleOpen} = $props()
 
 </script>
-<nav class="flex  flex-wrap p-1 border-b items-center justify-between">
+<nav class="flex  flex-wrap p-1 bg-white dark:bg-zinc-950 z-40 border-b items-center justify-between">
 	<div class="flex items-center gap-2">
 		<img src="/logo.png" class="h-14 w-16" alt="logo" />
         <h3 class="text-2xl font-bold">Tube App</h3>
