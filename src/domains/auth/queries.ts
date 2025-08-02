@@ -15,6 +15,13 @@ const register = () => {
 	});
 };
 
+export const logout = () => {
+	return createMutation({
+		mutationFn: () => auth_services.logout_user(),
+		mutationKey: ['auth', 'logout']
+	});
+};
+
 const session = () => {
 	return createQuery({
 		queryFn: () => auth_services.session_user(),
@@ -25,5 +32,6 @@ const session = () => {
 export const auth_queries = {
 	login,
 	register,
+	logout,
 	session
 };

@@ -24,6 +24,13 @@ class AuthServices {
 		});
 	};
 
+	public logout_user = (): Promise<void> => {
+		return api_client<void>({
+			method: 'DELETE',
+			url: '/auth/logout'
+		});
+	};
+
 	public session_user = (): Promise<User> => {
 		return api_client<User>({
 			method: 'GET',

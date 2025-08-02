@@ -1,5 +1,6 @@
 <script>
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js';
+	import LogoutButton from '../../auth/components/logout-button.svelte';
 </script>
 
 <DropdownMenu.Root>
@@ -11,6 +12,6 @@
 		/>
 	</DropdownMenu.Trigger>
 	<DropdownMenu.Content>
-        
+        <LogoutButton />
 	</DropdownMenu.Content>
 </DropdownMenu.Root>

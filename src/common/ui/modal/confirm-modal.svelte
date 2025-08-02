@@ -20,8 +20,8 @@
 		</Dialog.Header>
 		<Dialog.Description>{description}</Dialog.Description>
 		<Dialog.Footer>
-			<Button onclick={onCancel}>Cancel</Button>
-			<Button onclick={onSuccess}>Confirm</Button>
+			<Button variant="secondary"  onclick={onCancel}>Cancel</Button>
+			<Button variant="destructive" onclick={onSuccess}>Confirm</Button>
 		</Dialog.Footer>
 	</Dialog.Content>
 </Dialog.Root>
