@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { Button } from '$lib/components/ui/button';
+	import VideoCarousel from '../../../domains/post/components/video-carousel.svelte';
 </script>
 
 <div>
-	<div class="h-[900px] bg-amber-900">
-		<h1>Halaman Beranda</h1>
+	<div class="flex items-center justify-center">
+		<VideoCarousel />
 	</div>
-	<Button variant="secondary">Click Me</Button>
 </div>

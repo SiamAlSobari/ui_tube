@@ -3,11 +3,10 @@
 	import UserSidebar from '../../common/ui/layouts/user-sidebar.svelte';
 
 	let { children } = $props();
-	let isOpen = $state(false);
+	let isOpen = $state(true);
 	const handleOpen = () => {
 		isOpen = !isOpen;
 	};
-
 </script>
 
 <div class="flex min-h-screen w-full flex-col">
@@ -16,7 +15,7 @@
 	</header>
 	<div class="flex flex-1">
 		<UserSidebar {isOpen} />
-		<main class="z-1 ml-64 flex-1 overflow-y-auto p-4">
+		<main class={`z-1 lg:ml-64 flex-1 overflow-y-auto p-1`}>
 			{@render children()}
 		</main>
 	</div>
