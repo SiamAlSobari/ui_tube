@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { Home, Play, User } from 'lucide-svelte';
+	import { Bookmark, Home, Play, ThumbsUp, User, UserRoundPlus } from 'lucide-svelte';
 
 	interface Props {
 		isOpen: boolean;
@@ -29,6 +29,21 @@
 			name: 'My Channel',
 			icon: User,
 			href: '/channel'
+		},
+		{
+			name:'Tersimpan',
+			icon: Bookmark,
+			href: '/tersimpan'
+		},
+		{
+			name:'Subscribe',
+			icon: UserRoundPlus,
+			href: '/subscribe'
+		},
+		{
+			name:'Like',
+			icon: ThumbsUp,
+			href: '/like'
 		}
 	];
 </script>
