@@ -1,5 +1,6 @@
 <script>
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js';
+	import LoginButton from '../../auth/components/login-button.svelte';
 	import LogoutButton from '../../auth/components/logout-button.svelte';
 </script>
 
@@ -11,7 +12,8 @@
 			alt="profile"
 		/>
 	</DropdownMenu.Trigger>
-	<DropdownMenu.Content>
+	<DropdownMenu.Content class="flex flex-col gap-2">
+        <LoginButton />
         <LogoutButton />
 	</DropdownMenu.Content>
 </DropdownMenu.Root>
