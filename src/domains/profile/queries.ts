@@ -1,13 +1,28 @@
-import { createQuery } from "@tanstack/svelte-query";
-import { profile_services } from "./services";
+import { createMutation, createQuery, useQueryClient } from '@tanstack/svelte-query';
+import { profileServices } from './services';
 
-const get_profile = () => {
-    return createQuery({
-        queryFn: () => profile_services.get_profile(),
-        queryKey: ['profile']
-    })
+const getProfile = () => {
+	return createQuery({
+		queryFn: () => profileServices.getProfile(),
+		queryKey: ['profile']
+	});
 };
 
-export const profile_queries = {
-    get_profile
+const updateAvatar = (onSuccess: () => void) => {
+	const queryClient = useQueryClient();
+	return createMutation({
+		mutationFn: () => profileServices.updateAvatar(),
+		mutationKey: ['profile', 'avatar'],
+		onSuccess: () => {
+			queryClient.invalidateQueries({
+				queryKey: ['profile']
+			});
+			onSuccess();
+		}
+	});
+};
+
+export const profileQueries = {
+	getProfile,
+	updateAvatar
 };

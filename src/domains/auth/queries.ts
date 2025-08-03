@@ -1,17 +1,17 @@
 import { createMutation, createQueries, createQuery, Mutation } from '@tanstack/svelte-query';
-import type { login_payload, register_payload } from './types';
 import { auth_services } from './services';
+import type { loginPayload, registerPayload } from './types';
 
 const login = () => {
 	return createMutation({
-		mutationFn: (payload: login_payload) => auth_services.login_user(payload),
+		mutationFn: (payload: loginPayload) => auth_services.loginUser(payload),
 		mutationKey: ['auth', 'login']
 	});
 };
 
 const register = () => {
 	return createMutation({
-		mutationFn: (payload: register_payload) => auth_services.register_user(payload)
+		mutationFn: (payload: registerPayload) => auth_services.registerUser(payload)
 	});
 };
 
@@ -29,7 +29,7 @@ const session = () => {
 	});
 };
 
-export const auth_queries = {
+export const authQueries = {
 	login,
 	register,
 	logout,

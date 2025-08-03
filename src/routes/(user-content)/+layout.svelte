@@ -1,6 +1,8 @@
 <script lang="ts">
 	import UserNavbar from '../../common/ui/layouts/user-navbar.svelte';
 	import UserSidebar from '../../common/ui/layouts/user-sidebar.svelte';
+	import { profileQueries } from '../../domains/profile/queries';
+	import { setContext } from 'svelte';
 
 	let { children } = $props();
 	let isOpen = $state(true);
@@ -15,7 +17,7 @@
 	</header>
 	<div class="flex flex-1">
 		<UserSidebar {isOpen} />
-		<main class={`z-1 lg:ml-64 flex-1 overflow-y-auto p-1`}>
+		<main class={`z-1 flex-1 overflow-y-auto p-1 lg:ml-64`}>
 			{@render children()}
 		</main>
 	</div>

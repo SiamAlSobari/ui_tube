@@ -1,13 +1,27 @@
-import { api_client } from "../../common/helpers/api-client";
-import type { Profile } from "./type";
+import { api_client } from '../../common/helpers/api-client';
+import type { Profile } from './type';
 
 class ProfileService {
-    public get_profile = (): Promise<{data: Profile}> => {
-        return api_client<{data: Profile}>({
-            method: 'GET',
-            url: '/profile'
-        })
-    }
+	avatar: File | null = null;
+
+	public getProfile = (): Promise<{ data: Profile }> => {
+		return api_client<{ data: Profile }>({
+			method: 'GET',
+			url: '/profile'
+		});
+	};
+
+	public updateAvatar = (): Promise<void> => {
+		const formData = new FormData();
+		if (this.avatar) {
+			formData.append('avatar', this.avatar);
+		}
+		return api_client<void>({
+			method: 'PATCH',
+			url: '/profile',
+			data: formData
+		});
+	};
 }
 
-export const profile_services = new ProfileService();
+export const profileServices = new ProfileService();

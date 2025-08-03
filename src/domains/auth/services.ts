@@ -1,9 +1,9 @@
 import { api_client } from '../../common/helpers/api-client';
 import type { User } from '../user/type';
-import type { login_payload, register_payload } from './types';
+import type { loginPayload, registerPayload } from './types';
 
 class AuthServices {
-	public login_user = (payload: login_payload): Promise<void> => {
+	public loginUser = (payload: loginPayload): Promise<void> => {
 		return api_client<void>({
 			method: 'POST',
 			url: '/auth/login',
@@ -11,7 +11,7 @@ class AuthServices {
 		});
 	};
 
-	public register_user = (payload: register_payload): Promise<void> => {
+	public registerUser = (payload: registerPayload): Promise<void> => {
 		return api_client<void>({
 			method: 'POST',
 			url: '/auth/register',

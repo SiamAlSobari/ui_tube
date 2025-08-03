@@ -5,27 +5,24 @@
 	import { LockKeyhole, Mail, User2 } from 'lucide-svelte';
 	import * as Card from '$lib/components/ui/card/index';
 	import { goto } from '$app/navigation';
-	import {
-		register_validation,
-		type register_validation_type
-	} from '../../../domains/auth/validations';
-	import { auth_queries } from '../queries';
+	import { registerValidation, type registerValidationType } from '../validations';
+	import { authQueries } from '../queries';
 
-	let form: register_validation_type = {
+	let form: registerValidationType = {
 		name: '',
 		user_name: '',
 		email: '',
 		password: '',
 		confirm_password: ''
 	};
-	let errors: Partial<Record<keyof register_validation_type, string>> = {};
-	const register_mutation = auth_queries.register();
+	let errors: Partial<Record<keyof registerValidationType, string>> = {};
+	const register_mutation = authQueries.register();
 
 	function handleSubmit() {
-		const result = register_validation.safeParse(form);
+		const result = registerValidation.safeParse(form);
 		if (!result.success) {
 			errors = result.error.flatten().fieldErrors as Partial<
-				Record<keyof register_validation_type, string>
+				Record<keyof registerValidationType, string>
 			>;
 			return;
 		} else {

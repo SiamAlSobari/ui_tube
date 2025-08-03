@@ -2,7 +2,6 @@
 	import { Button } from '$lib/components/ui/button';
 	import * as Dialog from '$lib/components/ui/dialog/index.js';
 	import type { Writable } from 'svelte/store';
-
 	interface Props {
 		isOpen: Writable<boolean>;
 		title: string;

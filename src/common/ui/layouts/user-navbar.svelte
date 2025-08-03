@@ -10,7 +10,7 @@
 </script>
 
 <nav
-	class="z-40 flex flex-wrap items-center justify-between border-b bg-white p-1 dark:bg-zinc-950"
+	class="z-10 flex flex-wrap items-center justify-between border-b bg-white p-1 dark:bg-zinc-950"
 >
 	<div class="flex items-center gap-2">
 		<img src="/logo.png" class="h-14 w-16" alt="logo" />

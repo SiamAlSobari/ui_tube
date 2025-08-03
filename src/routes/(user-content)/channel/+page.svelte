@@ -2,14 +2,15 @@
 	import { Button } from '$lib/components/ui/button';
 	import { writable } from 'svelte/store';
 	import ConfirmModal from '../../../common/ui/modal/confirm-modal.svelte';
+	import Profile from '../../../domains/profile/components/profile.svelte';
 	let isOpen = writable(false);
 </script>
 
-<Button
+<!-- <Button
 	onclick={() => {
 		isOpen.set(true);
 	}}>Open Modal</Button
->
+> -->
 <ConfirmModal
 	{isOpen}
 	title="asas"
@@ -19,3 +20,7 @@
 		isOpen.set(false);
 	}}
 />
+
+<div class="flex flex-col gap-4 p-6">
+	<Profile />
+</div>
