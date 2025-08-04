@@ -1,8 +1,10 @@
 <script lang="ts">
+	import type { CreateQueryResult } from '@tanstack/svelte-query';
 	import UserNavbar from '../../common/ui/layouts/user-navbar.svelte';
 	import UserSidebar from '../../common/ui/layouts/user-sidebar.svelte';
 	import { profileQueries } from '../../domains/profile/queries';
 	import { setContext } from 'svelte';
+	import type { Profile } from '../../domains/profile/type';
 
 	let { children } = $props();
 	let isOpen = $state(true);

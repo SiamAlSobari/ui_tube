@@ -68,6 +68,8 @@
 	</div>
 	<div>
 		<h1 class="text-2xl font-semibold">{$profileQ.data?.data?.name}</h1>
-		<p class="line-clamp-1 w-full wrap-break-word text-muted-foreground">ini adalah bio</p>
+		<p class="line-clamp-1 w-full wrap-break-word text-muted-foreground">
+			{$profileQ.data?.data?.bio || '-'}
+		</p>
 	</div>
 </section>
