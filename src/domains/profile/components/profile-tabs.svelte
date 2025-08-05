@@ -1,6 +1,5 @@
 <script lang="ts">
 	import * as Tabs from "$lib/components/ui/tabs/index";
-	import VideoCard from "../../post/components/video-card.svelte";
 	import ProfileShortCard from "./profile-short-card.svelte";
 	import ProfileVideoCard from "./profile-video-card.svelte";
 
