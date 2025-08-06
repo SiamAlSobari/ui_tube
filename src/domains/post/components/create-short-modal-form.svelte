@@ -2,6 +2,8 @@
 	import { Button } from '$lib/components/ui/button';
 	import * as Dialog from '$lib/components/ui/dialog/index.js';
 	import type { Writable } from 'svelte/store';
+	import { categoryQueries } from '../../category/queries';
+	import { Loader2 } from 'lucide-svelte';
 
 	interface Props {
 		isOpen: Writable<boolean>;
@@ -16,6 +18,8 @@
 	let thumbnailFile: File | null = $state(null);
 	let videoFile: File | null = $state(null);
 	let thumbnailPreview: string | null = $state(null);
+	let categoriesId: string[] = $state([]);
+	let categoryQ = categoryQueries.getCategories();
 
 	function handleThumbnailChange(event: Event) {
 		const input = event.target as HTMLInputElement;
@@ -94,6 +98,29 @@
 					/>
 					{#if videoFile}
 						<p class="mt-1 truncate text-sm text-muted-foreground">{videoFile.name}</p>
+					{/if}
+				</div>
+
+				<!-- category select -->
+				<div class="space-y-2">
+					{#if $categoryQ.isLoading}
+						<div class="flex items-center space-x-2 text-gray-500">
+							<Loader2 class="h-4 w-4 animate-spin" />
+							<span>Loading categories...</span>
+						</div>
+					{:else}
+						<h2 class="text-sm font-medium">Categories</h2>
+						{#each $categoryQ.data!.data as category}
+							<label class="flex cursor-pointer items-center space-x-2">
+								<input
+									type="checkbox"
+									bind:group={categoriesId}
+									value={category.id}
+									class="form-checkbox rounded"
+								/>
+								<span>{category.name}</span>
+							</label>
+						{/each}
 					{/if}
 				</div>
 			</form>
