@@ -1,4 +1,4 @@
-export interface registerPayload {
+export interface createPost {
     title: string;
     caption: string;
     thumbnail: File | null;
