@@ -13,7 +13,7 @@ class PostService {
         })
 		return api_client<any>({
 			method: 'POST',
-			url: '/posts',
+			url: '/posts/video',
 			data: payload
 		});
 	}
