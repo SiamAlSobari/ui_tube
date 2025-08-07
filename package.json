@@ -44,6 +44,7 @@
 		"axios": "^1.11.0",
 		"lucide-svelte": "^0.533.0",
 		"mode-watcher": "^1.1.0",
+		"svelte-sonner": "^1.0.5",
 		"zod": "^4.0.13"
 	}
 }
