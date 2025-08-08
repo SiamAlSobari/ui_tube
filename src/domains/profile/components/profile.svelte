@@ -46,7 +46,8 @@
 	<div class="relative flex items-center gap-2">
 		<button class="h-40 w-40" onclick={handleOpen}>
 			<img
-				src={$profileQ.data?.data.avatarUrl || 'https://via.placeholder.com/150'}
+				src={$profileQ.data?.data.avatarUrl ||
+					'https://static.vecteezy.com/system/resources/thumbnails/003/337/584/small_2x/default-avatar-photo-placeholder-profile-icon-vector.jpg'}
 				alt="profile"
 				class="h-full w-full rounded-full object-cover"
 			/>

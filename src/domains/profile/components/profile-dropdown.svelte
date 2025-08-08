@@ -10,7 +10,7 @@
 <DropdownMenu.Root>
 	<DropdownMenu.Trigger>
 		<img
-			src={$profileQ.data?.data.avatarUrl}
+			src={$profileQ.data?.data.avatarUrl || "https://static.vecteezy.com/system/resources/thumbnails/003/337/584/small_2x/default-avatar-photo-placeholder-profile-icon-vector.jpg"}
 			class="h-14 w-14 rounded-full object-cover"
 			alt="profile"
 		/>
