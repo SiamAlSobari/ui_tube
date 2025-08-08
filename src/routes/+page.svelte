@@ -1,6 +1,10 @@
 <script>
 	import { Button } from '$lib/components/ui/button';
 	import ThemeTogle from '../common/ui/toggles/theme-togle.svelte';
+	import {  toast } from 'svelte-sonner'
+	const handleToast = () => {
+		toast.success('Hello')
+	}
 </script>
 
 <h1>Welcome to SvelteKit</h1>
@@ -11,3 +15,5 @@
 <p>To learn more about Svelte, visit <a href="https://svelte.dev">svelte.dev</a></p>
 <p>To learn more about SvelteKit, visit <a href="https://kit.svelte.dev">kit.svelte.dev</a></p>
 <a href="/beranda">log</a>
+
+<button on:click={handleToast}>Toast</button>
