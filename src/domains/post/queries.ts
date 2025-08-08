@@ -9,5 +9,14 @@ const createPostVideo = () => {
     })
 };
 
+const createPostShort = () => {
+    return createMutation({
+        mutationFn: (payload:createPost) => post_services.createShortPost(payload),
+        mutationKey: ['post', 'short']
+    })
+};
+
 export const postQueries = {
+    createPostVideo,
+    createPostShort
 };

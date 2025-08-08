@@ -4,6 +4,8 @@
 	import type { Writable } from 'svelte/store';
 	import { categoryQueries } from '../../category/queries';
 	import { Loader2 } from 'lucide-svelte';
+	import { postQueries } from '../queries';
+	import { toast } from 'svelte-sonner';
 
 	interface Props {
 		isOpen: Writable<boolean>;
@@ -18,8 +20,9 @@
 	let thumbnailFile: File | null = $state(null);
 	let videoFile: File | null = $state(null);
 	let thumbnailPreview: string | null = $state(null);
-	let categoriesId: string[] = $state([]);
+	let categoriesIds: string[] = $state([]);
 	let categoryQ = categoryQueries.getCategories();
+	let postMutation = postQueries.createPostVideo();
 
 	function handleThumbnailChange(event: Event) {
 		const input = event.target as HTMLInputElement;
@@ -37,7 +40,21 @@
 	}
 
 	function handleSubmit() {
-		// TODO
+		if (!title || !caption || !thumbnailFile || !videoFile || categoriesIds.length === 0) {
+			toast.error('Semua field wajib diisi, termasuk kategori.');
+			return;
+		}
+
+		$postMutation.mutate({
+			caption: caption,
+			title: title,
+			thumbnail: thumbnailFile,
+			video: videoFile,
+			categoryIds: categoriesIds
+		});
+
+		onSuccess();
+		toast.success('Video uploaded successfully');
 	}
 </script>
 
@@ -96,7 +113,6 @@
 					<label for="video" class="text-sm font-medium">Video</label>
 					<input
 						type="file"
-						accept="video/*"
 						onchange={handleVideoChange}
 						class="cursor-pointer text-sm file:mr-4 file:rounded file:border-0 file:bg-muted file:px-3 file:py-1 file:text-muted-foreground hover:file:bg-accent"
 					/>
@@ -118,11 +134,11 @@
 							<label class="flex cursor-pointer items-center space-x-2">
 								<input
 									type="checkbox"
-									bind:group={categoriesId}
+									bind:group={categoriesIds}
 									value={category.id}
 									class="form-checkbox rounded"
 								/>
-								<span >{category.name}</span>
+								<span>{category.name}</span>
 							</label>
 						{/each}
 					{/if}
@@ -132,7 +148,7 @@
 
 		<Dialog.Footer class="mt-6 flex justify-end gap-2">
 			<Button variant="secondary" onclick={onCancel}>Cancel</Button>
-			<Button onclick={onSuccess}>Upload</Button>
+			<Button onclick={handleSubmit}>Upload</Button>
 		</Dialog.Footer>
 	</Dialog.Content>
 </Dialog.Root>

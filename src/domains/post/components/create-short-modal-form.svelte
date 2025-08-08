@@ -4,6 +4,8 @@
 	import type { Writable } from 'svelte/store';
 	import { categoryQueries } from '../../category/queries';
 	import { Loader2 } from 'lucide-svelte';
+	import { postQueries } from '../queries';
+	import { toast } from 'svelte-sonner';
 
 	interface Props {
 		isOpen: Writable<boolean>;
@@ -18,8 +20,9 @@
 	let thumbnailFile: File | null = $state(null);
 	let videoFile: File | null = $state(null);
 	let thumbnailPreview: string | null = $state(null);
-	let categoriesId: string[] = $state([]);
+	let categoryIds: string[] = $state([]);
 	let categoryQ = categoryQueries.getCategories();
+	let postMutation = postQueries.createPostShort();
 
 	function handleThumbnailChange(event: Event) {
 		const input = event.target as HTMLInputElement;
@@ -34,6 +37,24 @@
 		if (input.files && input.files.length > 0) {
 			videoFile = input.files[0];
 		}
+	}
+
+	function handleSubmit() {
+		if (!title || !caption || !thumbnailFile || !videoFile || categoryIds.length === 0) {
+			toast.error('Semua field wajib diisi, termasuk kategori.');
+			return;
+		}
+
+		$postMutation.mutate({
+			caption: caption,
+			title: title,
+			thumbnail: thumbnailFile,
+			video: videoFile,
+			categoryIds: categoryIds
+		});
+
+		onSuccess();
+		toast.success('Video uploaded successfully');
 	}
 </script>
 
@@ -114,7 +135,7 @@
 							<label class="flex cursor-pointer items-center space-x-2">
 								<input
 									type="checkbox"
-									bind:group={categoriesId}
+									bind:group={categoryIds}
 									value={category.id}
 									class="form-checkbox rounded"
 								/>
@@ -128,7 +149,7 @@
 
 		<Dialog.Footer class="mt-6 flex justify-end gap-2">
 			<Button variant="secondary" onclick={onCancel}>Cancel</Button>
-			<Button onclick={onSuccess}>Upload</Button>
+			<Button onclick={handleSubmit}>Upload</Button>
 		</Dialog.Footer>
 	</Dialog.Content>
 </Dialog.Root>

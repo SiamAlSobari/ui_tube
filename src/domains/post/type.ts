@@ -3,5 +3,5 @@ export interface createPost {
     caption: string;
     thumbnail: File | null;
     video: File | null;
-    categorysId: string[];
+    categoryIds: string[];
 }
