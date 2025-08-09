@@ -34,6 +34,7 @@ const getPostVideoByUser = () => {
 	});
 };
 
+
 const getPostShortByUser = () => {
 	return createQuery({
 		queryFn: () => post_services.getPostsShortByUser(),

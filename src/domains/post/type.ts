@@ -2,7 +2,7 @@ export type Post = {
     id:string
     title: string;
     caption: string;
-    thumbnail: string;
+    thumbnailUrl: string;
     createdAt: string;
     updatedAt: string;
     media: Media

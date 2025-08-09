@@ -8,7 +8,6 @@
 	let isOpen = writable(false);
 	let imagePreview = $state<string | null>(null);
 	const profileQ = profileQueries.getProfile();
-
 	const updateProfile = profileQueries.updateAvatar(() => {
 		imagePreview = null;
 		profileServices.avatar = null;
