@@ -61,7 +61,7 @@
 <Dialog.Root bind:open={$isOpen}>
 	<Dialog.Content showCloseButton={false} class="w-full max-w-md">
 		<Dialog.Header class="flex items-center justify-center space-y-1.5">
-			<Dialog.Title class="text-lg font-semibold">Upload Video</Dialog.Title>
+			<Dialog.Title class="text-lg font-semibold">Upload Short</Dialog.Title>
 		</Dialog.Header>
 
 		<div class="mt-4">

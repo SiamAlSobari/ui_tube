@@ -23,11 +23,7 @@
 			>;
 			return;
 		} else {
-			$login_mutation.mutate(form, {
-				onSuccess: (data) => {
-					goto('/');
-				}
-			});
+			$login_mutation.mutate(form);
 		}
 	}
 </script>

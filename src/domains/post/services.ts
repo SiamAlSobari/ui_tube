@@ -1,5 +1,5 @@
 import { api_client } from '../../common/helpers/api-client';
-import type { createPost } from './type';
+import type { createPost, Post } from './type';
 
 class PostService {
 	public async createVideoPost(payload: createPost) {
@@ -33,6 +33,19 @@ class PostService {
 			url: '/posts/video',
 			data: formData
 		});
+	}
+
+	public async getPostsVideoByUser():Promise<{data:Post[]}>{
+		return api_client<{data:Post[]}>({
+			method: 'GET',
+			url: `/posts/user/video`
+		})
+	}
+	public async getPostsShortByUser():Promise<{data:Post[]}>{
+		return api_client<{data:Post[]}>({
+			method: 'GET',
+			url: `/posts/user/short`
+		})
 	}
 }
 
