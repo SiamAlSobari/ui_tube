@@ -1,9 +1,9 @@
 <script lang="ts">
 	import * as Card from '$lib/components/ui/card/index';
-	import { getPostQueriesContext } from '../../../common/context/post-context';
+	import { getPostQueriesProfileContext } from '../../../common/context/post-context';
 	import ShortPostSkeleton from '../../../common/ui/skeleton/short-post-skeleton.svelte';
 
-	const { postShortQ } = getPostQueriesContext();
+	const { postShortQ } = getPostQueriesProfileContext();
 </script>
 
 {#if $postShortQ.isSuccess}

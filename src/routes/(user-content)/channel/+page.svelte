@@ -3,11 +3,10 @@
 	import ProfileTabs from '../../../domains/profile/components/profile-tabs.svelte';
 	import CreatePostButton from '../../../domains/post/components/create-post-button.svelte';
 	import { postQueries } from '../../../domains/post/queries';
-	import { getContext, setContext } from 'svelte';
-	import { setPostQueriesContext } from '../../../common/context/post-context';
+	import { setPostQueriesProfileContext } from '../../../common/context/post-context';
 	let postVideoQ = postQueries.getPostVideoByUser();
 	let postShortQ = postQueries.getPostShortByUser();
-	setPostQueriesContext({ postVideoQ, postShortQ });
+	setPostQueriesProfileContext({ postVideoQ, postShortQ });
 </script>
 
 <div class="flex flex-col gap-4 p-6">

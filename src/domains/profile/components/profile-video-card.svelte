@@ -1,8 +1,8 @@
 <script>
 	import * as Card from '$lib/components/ui/card/index';
-	import { getPostQueriesContext } from '../../../common/context/post-context';
+	import { getPostQueriesProfileContext } from '../../../common/context/post-context';
 	import VideoPostSkeleton from '../../../common/ui/skeleton/video-post-skeleton.svelte';
-	const { postVideoQ } = getPostQueriesContext();
+	const { postVideoQ } = getPostQueriesProfileContext();
 </script>
 
 {#if $postVideoQ.isSuccess}
