@@ -34,11 +34,17 @@ const getPostVideoByUser = () => {
 	});
 };
 
-
 const getPostShortByUser = () => {
 	return createQuery({
 		queryFn: () => post_services.getPostsShortByUser(),
 		queryKey: ['post', 'short']
+	});
+};
+
+const getPostVideoDetail = (postId: string) => {
+	return createQuery({
+		queryFn: () => post_services.getPostVideoDetail(postId),
+		queryKey: ['post', 'video', postId]
 	});
 };
 

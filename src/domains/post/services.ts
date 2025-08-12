@@ -47,6 +47,13 @@ class PostService {
 			url: `/posts/user/short`
 		})
 	}
+
+	public async getPostVideoDetail(postId:string):Promise<{data:Post}>{
+		return api_client<{data:Post}>({
+			method: 'GET',
+			url: `/posts/video/${postId}`
+		})	
+	}
 }
 
 export const post_services = new PostService();

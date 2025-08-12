@@ -1,12 +1,9 @@
 <script>
-	import { goto } from '$app/navigation';
 	import { Button } from '$lib/components/ui/button';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import { writable } from 'svelte/store';
 	import CreateVideoModalForm from './create-video-modal-form.svelte';
 	import CreateShortModalForm from './create-short-modal-form.svelte';
-	import { getContext } from 'svelte';
-	import { getPostQueriesContext } from '../../../common/context/post-context';
 
 	let isOpenVideoModal = writable(false);
 	let isOpenShortModal = writable(false);
