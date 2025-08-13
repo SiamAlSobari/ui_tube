@@ -52,5 +52,6 @@ export const postQueries = {
 	createPostVideo,
 	createPostShort,
 	getPostVideoByUser,
-	getPostShortByUser
+	getPostShortByUser,
+	getPostVideoDetail
 };
