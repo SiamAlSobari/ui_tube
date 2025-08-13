@@ -1,6 +1,6 @@
 import { getContext, setContext } from 'svelte';
 import type { postQueries } from '../../domains/post/queries';
-import { POST_QUERIES_VIDEO_CONTEXT } from './key';
+import { POST_QUERIES_CONTEXT, POST_QUERIES_DETAIL_CONTEXT } from './key';
 
 // Tipe data context
 export interface PostQueriesContext {
@@ -12,10 +12,27 @@ export interface PostQueriesContext {
 
 // Setter (type-safe)
 export function setPostQueriesProfileContext(value: PostQueriesContext) {
-	setContext(POST_QUERIES_VIDEO_CONTEXT, value);
+	setContext(POST_QUERIES_CONTEXT, value);
 }
 
 // Getter (type-safe)
 export function getPostQueriesProfileContext() {
-	return getContext(POST_QUERIES_VIDEO_CONTEXT) as PostQueriesContext;
+	return getContext(POST_QUERIES_CONTEXT) as PostQueriesContext;
+}
+
+
+
+//Detail
+
+interface postQueriesDetailContext {
+	postVideoDetailQ: ReturnType<typeof postQueries.getPostVideoDetail>;
+}
+// Setter (type-unsafe)
+export function setPostQueriesVideoDetailContext(value: postQueriesDetailContext) {
+	setContext(POST_QUERIES_DETAIL_CONTEXT, value);
+}
+
+// Getter (type-unsafe)
+export function getPostQueriesVideoDetailContext() {
+	return getContext(POST_QUERIES_DETAIL_CONTEXT) as postQueriesDetailContext;
 }
